@@ -6,13 +6,13 @@ My first Python project built while learning Python.
 - Add Student
 - View Students
 - Search Student by Roll Number
-- Exit Program
+- Delete Student
+- Display Total Students
 
 ## Technologies Used
 - Python
 - OOP
 
 ## Future Features
-- Delete Student
 - Update Student
 - Save Data

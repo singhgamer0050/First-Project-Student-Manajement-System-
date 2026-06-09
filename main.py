@@ -18,7 +18,8 @@ while True:
     "1. Add Student\n"
     "2. View Student\n"
     "3. Search Student\n"
-    "4. Exit\n"
+    "4. Delete Student\n"
+    "5. Exit\n"
     "Enter your choice: "
     ))
     if menu == 1:
@@ -30,6 +31,7 @@ while True:
         stu1 = Student(name, roll_no, branch, marks)
         students.append(stu1)
         print("Student added successfully!")
+        print("-" * 20)
     elif menu == 2:
         if len(students) == 0:
             print("No students found!")
@@ -38,6 +40,8 @@ while True:
                 print("-" * 20)
                 student.view_stu()
                 print("-" * 20)
+            print("Total student",len(students))
+            print("-" * 20)
 
     elif menu == 3:
         roll = int(input("Enter roll number of student to search: "))
@@ -51,6 +55,18 @@ while True:
         if found == False:
             print("Student not found")
     elif menu == 4:
+        roll = int(input("Enter roll number of student to delete: "))
+        found = False
+        for stu in students:
+            if(stu.roll_no == roll):
+                students.remove(stu)
+                print("Student deleted successfully!")
+                print("-" * 20)
+                found = True
+                break    
+        if found == False:
+            print("Not a valid roll number for any student")   
+    elif menu == 5:
         print("Thankyou")
         break
     else:
