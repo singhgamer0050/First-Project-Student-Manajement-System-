@@ -3,16 +3,16 @@
 My first Python project built while learning Python.
 
 ## Features
-- Create Student Records
-- View Student Details
+- Add Student
+- View Students
+- Search Student by Roll Number
+- Exit Program
 
 ## Technologies Used
 - Python
 - OOP
 
 ## Future Features
-- Add Student
-- Search Student
 - Delete Student
 - Update Student
 - Save Data
