@@ -19,7 +19,8 @@ while True:
     "2. View Student\n"
     "3. Search Student\n"
     "4. Delete Student\n"
-    "5. Exit\n"
+    "5. Update Student\n"
+    "6. Exit\n"
     "Enter your choice: "
     ))
     if menu == 1:
@@ -65,8 +66,28 @@ while True:
                 found = True
                 break    
         if found == False:
-            print("Not a valid roll number for any student")   
+            print("Not a valid roll number for any student")
     elif menu == 5:
+        roll = int(input("Enter roll number of student to Update: "))
+        found = False
+        for stu in students:
+            if (stu.roll_no == roll):
+                name = input("Enter your name:")
+                roll_no = int(input("Enter your roll number:"))
+                branch = input("Enter your Branch:")
+                marks = int(input("Enter your marks:"))
+                print("-" * 20)
+                stu.name = name
+                stu.roll_no = roll_no
+                stu.branch = branch
+                stu.marks = marks
+                print("Student Updated successfully!")
+                print("-" * 20)
+                found = True
+                break
+        if found == False:
+            print("Student not exist")  
+    elif menu == 6:
         print("Thankyou")
         break
     else:
