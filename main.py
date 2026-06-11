@@ -14,20 +14,35 @@ class Student:
 
 students =[]
 while True:
-    menu = int(input(
-    "1. Add Student\n"
-    "2. View Student\n"
-    "3. Search Student\n"
-    "4. Delete Student\n"
-    "5. Update Student\n"
-    "6. Exit\n"
-    "Enter your choice: "
-    ))
+    try:
+        menu = int(input(
+        "1. Add Student\n"
+        "2. View Student\n"
+        "3. Search Student\n"
+        "4. Delete Student\n"
+        "5. Update Student\n"
+        "6. Exit\n"
+        "Enter your choice: "
+        ))
+    except ValueError:
+        print("Invalid Input")
+        print("-" * 20)
+        continue
     if menu == 1:
         name = input("Enter your name:")
-        roll_no = int(input("Enter your roll number:"))
+        try:
+            roll_no = int(input("Enter your roll number:"))    
+        except ValueError:
+            print("Invalid Input")
+            print("-" * 20)
+            continue
         branch = input("Enter your Branch:")
-        marks = int(input("Enter your marks:"))
+        try:
+            marks = int(input("Enter your marks:"))
+        except ValueError:
+            print("Invalid Input")
+            print("-" * 20)
+            continue
         print("-" * 20)
         stu1 = Student(name, roll_no, branch, marks)
         students.append(stu1)
@@ -45,7 +60,12 @@ while True:
             print("-" * 20)
 
     elif menu == 3:
-        roll = int(input("Enter roll number of student to search: "))
+        try:
+            roll = int(input("Enter roll number of student to search: "))    
+        except ValueError:
+            print("Invalid Input")
+            print("-" * 20)
+            continue
         found = False
         for stu in students:
             if(stu.roll_no == roll):
@@ -56,7 +76,12 @@ while True:
         if found == False:
             print("Student not found")
     elif menu == 4:
-        roll = int(input("Enter roll number of student to delete: "))
+        try:
+            roll = int(input("Enter roll number of student to delete: "))
+        except ValueError:
+            print("Invalid Input")
+            print("-" * 20)
+            continue
         found = False
         for stu in students:
             if(stu.roll_no == roll):
@@ -68,14 +93,29 @@ while True:
         if found == False:
             print("Not a valid roll number for any student")
     elif menu == 5:
-        roll = int(input("Enter roll number of student to Update: "))
+        try:
+            roll = int(input("Enter roll number of student to Update: "))    
+        except ValueError:
+            print("Invalid Input")
+            print("-" * 20)
+            continue
         found = False
         for stu in students:
             if (stu.roll_no == roll):
                 name = input("Enter your name:")
-                roll_no = int(input("Enter your roll number:"))
+                try:
+                    roll_no = int(input("Enter your roll number:"))    
+                except ValueError:
+                    print("Invalid Input")
+                    print("-" * 20)
+                    continue
                 branch = input("Enter your Branch:")
-                marks = int(input("Enter your marks:"))
+                try:
+                    marks = int(input("Enter your marks:"))
+                except ValueError:
+                    print("Invalid Input")
+                    print("-" * 20)
+                    continue
                 print("-" * 20)
                 stu.name = name
                 stu.roll_no = roll_no
