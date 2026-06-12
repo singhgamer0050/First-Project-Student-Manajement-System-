@@ -1,25 +1,34 @@
-# Student Management System
+# Student Management System V2
 
 My first Python project built while learning Python.
 
+A simple Student Management System built using Python.
+
+This project allows users to manage student records through a menu-driven interface. Student data is stored permanently using JSON file handling.
+
 ## Features
+
 - Add Student
 - View All Students
 - Search Student by Roll Number
 - Update Student Details
 - Delete Student
-- Display Total Number of Students
-- Input Validation using Exception Handling
+- Count Total Students
+- JSON Data Storage
+- Exception Handling
+- Duplicate Roll Number Validation
 
-## Technologies Used
-- Python
-- Classes and Objects (OOP)
-- Constructors (__init__)
+## Concepts Used
+
+- Python Dictionaries
 - Lists
 - Loops
 - Conditional Statements
-- CRUD Operations
-- Exception Handling (try-except)
+- Functions
+- Exception Handling
+- File Handling
+- JSON Module
+
 
 ## How to Run
 
@@ -41,16 +50,43 @@ cd First-Project-Student-Manajement-System-
 python main.py
 ```
 
+## Menu Options
+- Add Student
+- View Students
+- Search Student
+- Delete Student
+- Update Student
+- Exit
+- Data Format
+
+## Student records are stored in JSON format:
+
+[
+  {
+    "name": "Bhupendra",
+    "roll_no": 101,
+    "branch": "CSE(AI)",
+    "marks": 95
+  }
+]
+## Error Handling
+
+- The project handles:
+- Invalid menu input
+- Invalid roll number input
+- Invalid marks input
+- Missing JSON file
+- Empty JSON file
+- Duplicate roll numbers
+
 ## Future Improvements
-
-- JSON Data Storage
-- File Handling
-- Automatic Data Loading
-- Better User Interface
-- Duplicate Roll Number Validation
-
-## Author
+- Object-Oriented Version (V3)
+- Student Result Analysis
+- CSV Export
+- Database Integration
+- GUI Version
+- Author
 
 Bhupendra Singh
 
-Learning Python and building projects before starting B.Tech CSE (AI).
+Built while learning Python, JSON handling, and Exception Handling.

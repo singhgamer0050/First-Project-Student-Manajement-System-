@@ -1,18 +1,14 @@
-class Student:
-    def __init__(self, name, roll_no, branch, marks):
-        self.name = name
-        self.roll_no = roll_no
-        self.branch = branch
-        self.marks = marks
+import json
+try:
+    with open ("stu.json","r") as f:
+        data = json.load(f)
+except (FileNotFoundError, json.JSONDecodeError):
+    data = []
+def save_data():
+    with open("stu.json", "w") as f:
+        json.dump(students, f, indent=2)
 
-    def view_stu(self):
-        print("Student details:")
-        print("Student name =",self.name )
-        print("Student roll no. =",self.roll_no )
-        print("Student branch =",self.branch )
-        print("Student marks =",self.marks )
-
-students =[]
+students = data
 while True:
     try:
         menu = int(input(
@@ -30,8 +26,17 @@ while True:
         continue
     if menu == 1:
         name = input("Enter your name:")
+        found = False
         try:
-            roll_no = int(input("Enter your roll number:"))    
+            roll_no = int(input("Enter your roll number:")) 
+            found = False
+            for student in students:
+                if student["roll_no"] == roll_no:
+                    print("Roll number already exists")
+                    found = True
+                    break
+            if found == True:
+                continue
         except ValueError:
             print("Invalid Input")
             print("-" * 20)
@@ -44,20 +49,26 @@ while True:
             print("-" * 20)
             continue
         print("-" * 20)
-        stu1 = Student(name, roll_no, branch, marks)
-        students.append(stu1)
+        stu={"name" : name,
+             "roll_no" : roll_no,
+             "branch" : branch,
+             "marks" : marks}
+        students.append(stu)
         print("Student added successfully!")
         print("-" * 20)
+        save_data()
     elif menu == 2:
         if len(students) == 0:
             print("No students found!")
         else:
             for student in students:
                 print("-" * 20)
-                student.view_stu()
+                print("Name:", student["name"])
+                print("Roll No:", student["roll_no"])
+                print("Branch:", student["branch"])
+                print("Marks:", student["marks"])
                 print("-" * 20)
-            print("Total student",len(students))
-            print("-" * 20)
+            print("Total students:", len(students))
 
     elif menu == 3:
         try:
@@ -67,9 +78,9 @@ while True:
             print("-" * 20)
             continue
         found = False
-        for stu in students:
-            if(stu.roll_no == roll):
-                stu.view_stu()
+        for student in students:
+            if(student["roll_no"] == roll):
+                print(student)
                 print("-" * 20)
                 found = True
                 break
@@ -83,9 +94,10 @@ while True:
             print("-" * 20)
             continue
         found = False
-        for stu in students:
-            if(stu.roll_no == roll):
-                students.remove(stu)
+        for student in students:
+            if(student["roll_no"] == roll):
+                students.remove(student)
+                save_data()
                 print("Student deleted successfully!")
                 print("-" * 20)
                 found = True
@@ -100,8 +112,8 @@ while True:
             print("-" * 20)
             continue
         found = False
-        for stu in students:
-            if (stu.roll_no == roll):
+        for student in students:
+            if (student["roll_no"] == roll):
                 name = input("Enter your name:")
                 try:
                     roll_no = int(input("Enter your roll number:"))    
@@ -117,12 +129,13 @@ while True:
                     print("-" * 20)
                     continue
                 print("-" * 20)
-                stu.name = name
-                stu.roll_no = roll_no
-                stu.branch = branch
-                stu.marks = marks
+                student["name"] = name
+                student["roll_no"] = roll_no
+                student["branch"] = branch
+                student["marks"] = marks
                 print("Student Updated successfully!")
                 print("-" * 20)
+                save_data()
                 found = True
                 break
         if found == False:
