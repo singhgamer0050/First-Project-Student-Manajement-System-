@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Singh",
+    "roll_no": 20,
+    "branch": "CSE(AI)",
+    "marks": 200
+  },
+  {
+    "name": "drgb",
+    "roll_no": 6,
+    "branch": "dfg",
+    "marks": 654
+  },
+  {
+    "name": "aa",
+    "roll_no": 30,
+    "branch": "sdv",
+    "marks": 500
+  },
+  {
+    "name": "sdfg",
+    "roll_no": 2,
+    "branch": "dg",
+    "marks": 46
+  }
+]
